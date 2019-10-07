@@ -1,10 +1,12 @@
 void setup()
 {
+	size(500,300)
 	noLoop();
 }
 void draw()
 {
-	//your code here
+	background(77,0,0);
+	
 }
 void mousePressed()
 {
