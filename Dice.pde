@@ -1,32 +1,25 @@
-//int dotSum = 
+
 void setup()
 {
 	size(500,500);
 	textAlign(CENTER);
 	noLoop();
-	background(77,0,0);
+	
 }
 void draw()
 {
+	fill(77,0,0);
+	rect(0,0,500,500);
+	int totalSum = 0;
 	
-	Die one = new Die (150,150);
-	Die two = new Die (250,150);
-	Die three = new Die (350,150);
-	Die four = new Die (150,250);
-	Die five = new Die (250,250);
-	Die six = new Die (350,250);
-	Die seven = new Die (150,350);
-	Die eight = new Die (250,350);
-	Die nine = new Die (350,350);
-	one.show();
-	two.show();
-	three.show();
-	four.show();
-	five.show();
-	six.show();
-	seven.show();
-	eight.show();
-	nine.show();
+	for(int y=150;y<=350;y+=100){
+		for(int x=150;x<=350;x+=100){
+			Die one = new Die(x,y);
+			one.show();
+			totalSum += one.roll;
+		}
+	}
+	text("Total Dots: " + totalSum, 250,450);
 
 }
 void mousePressed()
@@ -49,7 +42,7 @@ class Die //models one single dice cube
 	{
 		//your code here
 
-		roll = (int)(Math.random()*6)+1;
+		roll = (int)(Math.random()*6)+1; 
 
 	}
 	void show()
@@ -62,6 +55,7 @@ class Die //models one single dice cube
 			noStroke();
 			fill(255);
 			ellipse(myX,myY, 10,10);
+
 		}
 		if(roll==2){
 			noStroke();
